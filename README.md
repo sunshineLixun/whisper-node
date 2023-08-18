@@ -1,4 +1,4 @@
-# whisper-node
+# whisper-node-ts
 
 [![npm downloads](https://img.shields.io/npm/dm/whisper-node)](https://npmjs.org/package/whisper-node)
 [![npm downloads](https://img.shields.io/npm/l/whisper-node)](https://npmjs.org/package/whisper-node)
