@@ -1,19 +1,15 @@
-import {whisper} from './index';
+import { whisper } from "./index";
+import path from "path";
 (async function run() {
   try {
-
-    const transcript = await whisper(
-      "/Users/Shared/twospeak_clip.wav",
-      {
-        // modelPath: "/Users/Shared/custom-models/ggml-base.en.bin",
-        // modelName: "base.en",
-        whisperOptions: { word_timestamps: true }
-      }
-    );
+    const transcript = await whisper(path.join(__dirname, "path-to-wav"), {
+      modelPath: path.join(__dirname, "path-to-bin"),
+      modelName: "medium.en",
+      whisperOptions: { word_timestamps: true },
+    });
 
     console.log("transcript", transcript);
-
   } catch (error) {
     console.log("ERROR", error);
   }
-})()
+})();

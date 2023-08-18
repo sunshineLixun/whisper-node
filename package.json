@@ -1,10 +1,11 @@
 {
-  "name": "whisper-node",
-  "version": "0.2.12",
+  "name": "whisper-node-ts",
+  "version": "0.0.1",
   "description": "Node bindings for OpenAI's Whisper. Optimized for CPU.",
-  "homepage": "https://npmjs.com/whisper-node",
-  "author": "ariym",
+  "homepage": "https://npmjs.com/whisper-node-ts",
+  "author": "sunshineLixun",
   "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "bin": {
     "download": "dist/download.js"
   },
@@ -21,12 +22,13 @@
     "typescript": "^4.9.3"
   },
   "dependencies": {
+    "@types/shelljs": "^0.8.12",
     "readline-sync": "^1.4.10",
     "shelljs": "^0.8.5"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ariym/whisper-node.git"
+    "url": "https://github.com/sunshineLixun/whisper-node"
   },
   "license": "MIT",
   "keywords": [
