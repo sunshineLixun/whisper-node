@@ -7,21 +7,13 @@ export const createCppCommand = ({
   filePath,
   modelName = null,
   modelPath = null,
-  options = { word_timestamps: true },
-}: CppCommandTypes) =>
-  `./main ${getFlags(options)} -m ${modelPathOrName(
-    modelName,
-    modelPath
-  )} -f ${filePath}`;
+  options = { word_timestamps: true }
+}: CppCommandTypes) => `./main ${getFlags(options)} -m ${modelPathOrName(modelName, modelPath)} -f ${filePath}`;
 
 const modelPathOrName = (mn: string, mp: string) => {
   if (mn && mp) throw "Submit a modelName OR a modelPath. NOT BOTH!";
   else if (!mn && !mp) {
-    console.log(
-      "[whisper-node] No 'modelName' or 'modelPath' provided. Trying default model:",
-      DEFAULT_MODEL,
-      "\n"
-    );
+    console.log("[whisper-node] No 'modelName' or 'modelPath' provided. Trying default model:", DEFAULT_MODEL, "\n");
 
     // second modelname check to verify is installed in directory
     const modelPath = `./models/${MODELS_LIST[DEFAULT_MODEL]}`;
@@ -45,10 +37,8 @@ const modelPathOrName = (mn: string, mp: string) => {
     }
 
     return modelPath;
-  } else if (mn)
-    throw `modelName "${mn}" not found in list of models. Check your spelling OR use a custom modelPath.`;
-  else
-    throw `modelName OR modelPath required! You submitted modelName: '${mn}', modelPath: '${mp}'`;
+  } else if (mn) throw `modelName "${mn}" not found in list of models. Check your spelling OR use a custom modelPath.`;
+  else throw `modelName OR modelPath required! You submitted modelName: '${mn}', modelPath: '${mp}'`;
 };
 
 // option flags list: https://github.com/ggerganov/whisper.cpp/blob/master/README.md?plain=1#L91
@@ -77,7 +67,7 @@ export const MODELS_LIST = {
   medium: "ggml-medium.bin",
   "medium.en": "ggml-medium.en.bin",
   "large-v1": "ggml-large-v1.bin",
-  large: "ggml-large.bin",
+  large: "ggml-large.bin"
 };
 
 type CppCommandTypes = {

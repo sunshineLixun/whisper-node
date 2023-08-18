@@ -5,7 +5,7 @@ import path from "path";
     const transcript = await whisper(path.join(__dirname, "path-to-wav"), {
       modelPath: path.join(__dirname, "path-to-bin"),
       modelName: "medium.en",
-      whisperOptions: { word_timestamps: true },
+      whisperOptions: { word_timestamps: true }
     });
 
     console.log("transcript", transcript);

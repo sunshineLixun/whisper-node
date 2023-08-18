@@ -11,10 +11,7 @@ interface IOptions {
 }
 
 // returns array[]: {start, end, speech}
-export const whisper = async (
-  filePath: string,
-  options?: IOptions
-): Promise<ITranscriptLine[]> => {
+export const whisper = async (filePath: string, options?: IOptions): Promise<ITranscriptLine[]> => {
   try {
     console.log("[whisper-node] Transcribing:", filePath, "\n");
 
@@ -25,7 +22,7 @@ export const whisper = async (
       filePath: path.normalize(filePath),
       modelName: options?.modelName,
       modelPath: options?.modelPath,
-      options: options?.whisperOptions,
+      options: options?.whisperOptions
     });
 
     // 2. run command in whisper.cpp directory

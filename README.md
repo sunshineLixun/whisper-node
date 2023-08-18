@@ -1,7 +1,7 @@
 # whisper-node
 
 [![npm downloads](https://img.shields.io/npm/dm/whisper-node)](https://npmjs.org/package/whisper-node)
-[![npm downloads](https://img.shields.io/npm/l/whisper-node)](https://npmjs.org/package/whisper-node)  
+[![npm downloads](https://img.shields.io/npm/l/whisper-node)](https://npmjs.org/package/whisper-node)
 
 Node.js bindings for OpenAI's Whisper.
 
@@ -28,7 +28,7 @@ npx whisper-node download
 ## Usage
 
 ```javascript
-import whisper from 'whisper-node';
+import whisper from "whisper-node";
 
 const transcript = await whisper("example/sample.wav");
 
@@ -40,11 +40,11 @@ console.log(transcript); // output: [ {start,end,speech} ]
 ```javascript
 [
   {
-    "start":  "00:00:14.310", // time stamp begin
-    "end":    "00:00:16.480", // time stamp end
-    "speech": "howdy"         // transcription
+    start: "00:00:14.310", // time stamp begin
+    end: "00:00:16.480", // time stamp end
+    speech: "howdy" // transcription
   }
-]
+];
 ```
 
 ### Usage with Additional Options
@@ -79,13 +79,13 @@ const transcript = await whisper(filePath, options);
 - [x] Support projects not using Typescript
 - [x] Allow custom directory for storing models
 - [ ] Config files as alternative to model download cli
-- [ ] Remove *path*, *shelljs* and *prompt-sync* package for browser, react-native expo, and webassembly compatibility
+- [ ] Remove _path_, _shelljs_ and _prompt-sync_ package for browser, react-native expo, and webassembly compatibility
 - [ ] [fluent-ffmpeg](https://www.npmjs.com/package/fluent-ffmpeg) to support more audio formats
 - [ ] [Pyanote diarization](https://huggingface.co/pyannote/speaker-diarization) for speaker names
 - [ ] [Implement WhisperX as optional alternative model](https://github.com/m-bain/whisperX) for diarization and higher precision timestamps (as alternative to C++ version)
 
 ## Modifying whisper-node
 
-```npm run dev``` - runs nodemon and tsc on '/src/test.ts'
+`npm run dev` - runs nodemon and tsc on '/src/test.ts'
 
-```npm run build``` - runs tsc, outputs to '/dist' and gives sh permission to 'dist/download.js'
+`npm run build` - runs tsc, outputs to '/dist' and gives sh permission to 'dist/download.js'

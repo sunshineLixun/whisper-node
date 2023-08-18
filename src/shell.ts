@@ -13,25 +13,18 @@ export interface IShellOptions {
 // default passed to shelljs exec
 const defaultShellOptions = {
   silent: true, // true: won't print to console
-  async: false,
+  async: false
 };
 
 // return shelljs process
-export default async function whisperShell(
-  command: string,
-  options: IShellOptions = defaultShellOptions
-): Promise<any> {
-  return new Promise(async (resolve, reject) => {
+export default async function whisperShell(command: string, options: IShellOptions = defaultShellOptions): Promise<any> {
+  return new Promise((resolve, reject) => {
     try {
       // docs: https://github.com/shelljs/shelljs#execcommand--options--callback
-      shell.exec(
-        command,
-        options,
-        (code: number, stdout: string, stderr: string) => {
-          if (code === 0) resolve(stdout);
-          else reject(stderr);
-        }
-      );
+      shell.exec(command, options, (code: number, stdout: string, stderr: string) => {
+        if (code === 0) resolve(stdout);
+        else reject(stderr);
+      });
     } catch (error) {
       reject(error);
     }
@@ -44,13 +37,8 @@ try {
 
   // ensure command exists in local path
   if (!shell.which(WHISPER_CPP_MAIN_PATH)) {
-    shell.echo(
-      "[whisper-node] Problem. whisper.cpp not initialized. Current shelljs directory: ",
-      __dirname
-    );
-    shell.echo(
-      "[whisper-node] Attempting to run 'make' command in /whisper directory..."
-    );
+    shell.echo("[whisper-node] Problem. whisper.cpp not initialized. Current shelljs directory: ", __dirname);
+    shell.echo("[whisper-node] Attempting to run 'make' command in /whisper directory...");
 
     // todo: move this
     shell.exec("make", defaultShellOptions);
@@ -61,11 +49,7 @@ try {
         __dirname
       );
       process.exit(1);
-    } else
-      console.log(
-        "[whisper-node] 'make' command successful. Current shelljs directory: ",
-        __dirname
-      );
+    } else console.log("[whisper-node] 'make' command successful. Current shelljs directory: ", __dirname);
   }
 } catch (error) {
   console.log("error caught in try catch block");
